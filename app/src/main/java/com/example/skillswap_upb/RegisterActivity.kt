@@ -3,9 +3,9 @@ package com.example.skillswap_upb
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
     }
 }
