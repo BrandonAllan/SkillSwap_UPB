@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "743943927398",
+    "project_id": "skillswap-upb",
+    "storage_bucket": "skillswap-upb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743943927398:android:a8a4504bfef12384e55fa7",
+        "android_client_info": {
+          "package_name": "com.example.skillswap_upb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "743943927398-r4oilrqu0s5dutb0u23c4c1oqfum2c2o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBawXi_46rGfAfJ0b09JIcPjud3UYHeXI8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "743943927398-r4oilrqu0s5dutb0u23c4c1oqfum2c2o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
