@@ -3,6 +3,7 @@
     <style name="Base.Theme.SkillSwap_UPB" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/light_green</item>
     </style>
 
     <style name="Theme.SkillSwap_UPB" parent="Base.Theme.SkillSwap_UPB" />
