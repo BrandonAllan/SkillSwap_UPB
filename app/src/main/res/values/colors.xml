@@ -4,6 +4,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="gray">#D9D9D9</color>
     <color name="light_green">#3DCDD6</color>
-    <color name="red">#DD1B22</color>
-
+    <color name="red">#E73C42</color>
+    <color name="navigationBarColor">#81F3E9</color>
 </resources>

@@ -1,10 +1,11 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.SkillSwap_UPB" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="Base.Theme.SkillSwap_UPB" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary colors -->
         <item name="colorPrimary">@color/light_green</item>
-        <item name="colorPrimaryVariant">@color/red</item>
+
+        <!-- Secondary colors -->
+        <item name="colorSecondary">@color/red</item>
     </style>
 
     <style name="Theme.SkillSwap_UPB" parent="Base.Theme.SkillSwap_UPB" />
