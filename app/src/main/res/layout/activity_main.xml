@@ -4,16 +4,241 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#262F62"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:id="@+id/frameLayout2"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        app:layout_constraintBottom_toBottomOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </FrameLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="WELCOME"
-        android:textStyle="bold"
+        android:background="@color/navigationBarColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:menu="@menu/botton_nav_menu"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"/>
+
+    <SearchView
+        android:id="@+id/searchView"
+        android:layout_width="324dp"
+        android:layout_height="37dp"
+        android:background="@android:color/white"
+        android:foregroundTint="@color/white"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.077" />
+
+    <FrameLayout
+        android:id="@+id/DERECHO"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
+        android:clickable="true"
+        android:onClick="handleImageClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.097">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/derecho"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_corners"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DERECHO"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="20sp"
+            android:layout_gravity="center" />
+
+    </FrameLayout>
+
+    <RelativeLayout
+        android:id="@+id/FINANZAS"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
+        android:clickable="true"
+        android:onClick="handleImageClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.097">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/finanzas"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_corners"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FINANZAS"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="20sp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/INGENIERIA"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
+        android:clickable="true"
+        android:onClick="handleImageClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.366">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ingenieria"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_corners"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INGENIERIA"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="20sp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/CIENCIAS"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
+        android:clickable="true"
+        android:onClick="handleImageClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.366">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ciencia"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_corners"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CIENCIAS BASICAS"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textStyle="bold|normal"
+            android:textSize="20sp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/INGLES"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
+        android:clickable="true"
+        android:onClick="handleImageClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.197"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.635">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ingles"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_corners"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="INGLES"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textStyle="bold|normal"
+            android:textSize="20sp"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/ULTIMO_SEMESTRE"
+        android:layout_width="130dp"
+        android:layout_height="95dp"
+        android:clickable="true"
+        android:onClick="handleImageClick"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.781"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/searchView"
+        app:layout_constraintVertical_bias="0.635">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/ultimo_semestre"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_corners"
+            android:alpha="0.5" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
+            android:text="ULTIMO SEMESTRE"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold|normal" />
+
+    </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
