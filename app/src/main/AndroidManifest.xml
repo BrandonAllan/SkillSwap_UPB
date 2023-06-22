@@ -13,6 +13,9 @@
         android:theme="@style/Theme.SkillSwap_UPB"
         tools:targetApi="31">
         <activity
+            android:name=".ChatList"
+            android:exported="false" />
+        <activity
             android:name=".ChatActivity"
             android:exported="false" />
         <activity
@@ -26,7 +29,7 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".LoginActivity"
             android:exported="true">
