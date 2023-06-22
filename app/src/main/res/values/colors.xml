@@ -8,4 +8,5 @@
     <color name="navigationBarColor">#93E6DE</color>
     <color name="send_message_color">#3DCDD6</color>
     <color name="receive_message_color">#4375CC</color>
+    <color name="online_circle_color">#FF99CC00</color>
 </resources>
