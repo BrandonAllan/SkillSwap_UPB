@@ -1,6 +1,6 @@
 package com.example.skillswap_upb
 
-data class Usuario(
+data class UsuarioEnseñar(
     var nombre: String,
     var aprender: String,
     var ensenar: String,

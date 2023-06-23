@@ -1,15 +1,17 @@
-package com.example.skillswap_upb
+package com.example.skillswap_upb.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.skillswap_upb.R
+import com.example.skillswap_upb.UsuarioEnseñar
 
 
-class AdaptadorUsuario(
-    var listaUsuarios: ArrayList<Usuario>
-): RecyclerView.Adapter<AdaptadorUsuario.ViewHolder>()     {
+class AdaptadorUsuarioEnseñar(
+    var listaUsuarios: ArrayList<UsuarioEnseñar>
+): RecyclerView.Adapter<AdaptadorUsuarioEnseñar.ViewHolder>()     {
     class ViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val tvNombre = itemView.findViewById(R.id.tvNombre) as TextView
         val tvAprender = itemView.findViewById(R.id.tvAprender) as TextView
@@ -31,7 +33,7 @@ class AdaptadorUsuario(
     override fun getItemCount(): Int {
         return listaUsuarios.size
     }
-    fun filtrar(listaFiltrada: ArrayList<Usuario>) {
+    fun filtrar(listaFiltrada: ArrayList<UsuarioEnseñar>) {
         this.listaUsuarios = listaFiltrada
         notifyDataSetChanged()
 

@@ -1,4 +1,4 @@
-package com.example.skillswap_upb
+package com.example.skillswap_upb.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+import com.example.skillswap_upb.Message
+import com.example.skillswap_upb.R
 import com.google.firebase.auth.FirebaseAuth
 
 class MessageAdapter(val context:Context, val messageList: ArrayList<Message>):
