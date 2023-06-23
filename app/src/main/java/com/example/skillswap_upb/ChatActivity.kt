@@ -1,44 +1,88 @@
 package com.example.skillswap_upb
 
-import android.app.ProgressDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bumptech.glide.Glide
-import com.example.skillswap_upb.databinding.ActivityChatBinding
+import android.widget.EditText
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.skillswap_upb.adapter.MessageAdapter
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.database.ValueEventListener
 
 class ChatActivity : AppCompatActivity() {
 
-    var binding:ActivityChatBinding? = null
-    val adapter:MessageAdapter? = null
-    var message:ArrayList<Message>? = null
-    var senderRoom:String? = null
-    var receiverRoom:String? = null
-    var database: FirebaseDatabase? = null
-    var storage: FirebaseStorage? = null
-    var dialog: ProgressDialog? = null
-    var senderUid:String? = null
+    private lateinit var messageRecyclerView: RecyclerView
+    private lateinit var messageBox: EditText
+    private lateinit var sendButton: ImageView
+    private lateinit var messageAdapter: MessageAdapter
+    private lateinit var messageList: ArrayList<Message>
+    private lateinit var dbref: DatabaseReference
+
+    var receiverRoom: String? = null
+    var senderRoom: String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_chat)
 
-        binding = ActivityChatBinding.inflate(layoutInflater)
-        setContentView(binding!!.root)
-        setSupportActionBar(binding!!.toolbar)
-        database = FirebaseDatabase.getInstance()
-        storage = FirebaseStorage.getInstance()
-        dialog = ProgressDialog(this@ChatActivity)
-        dialog!!.setMessage("Uploading image...")
-        dialog!!.setCancelable(false)
-        message = ArrayList()
+        dbref = FirebaseDatabase.getInstance().getReference()
+
         val name = intent.getStringExtra("name")
-        val profile = intent.getStringExtra("image")
-        binding!!.profileName.text = name
-        Glide.with(this@ChatActivity).load(profile)
-            .placeholder(R.drawable.chat_image)
-            .into(binding!!.profileImage)
-        binding!!.backButton.setOnClickListener{ finish() }
+        val receiverUid = intent.getStringExtra("uid")
+        val senderUid = FirebaseAuth.getInstance().currentUser?.uid
 
+        senderRoom = senderUid + receiverUid
+        receiverRoom = receiverUid + senderUid
+
+        val profileNameTextView = findViewById<TextView>(R.id.profileName)
+        profileNameTextView.text = name
+
+        messageRecyclerView = findViewById(R.id.messageRecyclerView)
+        messageBox = findViewById(R.id.messageBox)
+        sendButton = findViewById(R.id.sendButton)
+        messageList = ArrayList()
+        messageAdapter = MessageAdapter(this,messageList)
+
+        messageRecyclerView.layoutManager = LinearLayoutManager(this)
+        messageRecyclerView.adapter = messageAdapter
+
+        //logic for adding data to recyclerview
+        dbref.child("chats").child(senderRoom!!).child("messages")
+            .addValueEventListener(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    messageList.clear()
+                    for(postSnapshot in snapshot.children){
+
+                        val message = postSnapshot.getValue(Message::class.java)
+                        messageList.add(message!!)
+                    }
+                    messageAdapter.notifyDataSetChanged()
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                }
+
+            })
+
+        //Adding the message to database
+        sendButton.setOnClickListener{
+
+            val message = messageBox.text.toString()
+            val messageObject = Message(message, senderUid)
+
+            dbref.child("chats").child(senderRoom!!).child("messages").push()
+                .setValue(messageObject).addOnSuccessListener {
+                    dbref.child("chats").child(receiverRoom!!).child("messages").push()
+                        .setValue(messageObject)
+                }
+            messageBox.setText("")
+        }
     }
 }

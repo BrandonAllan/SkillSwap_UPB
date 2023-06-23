@@ -42,7 +42,8 @@ class LoginActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Login successful, proceed to the next activity
                     Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, ChatList::class.java)
+                    finish()
                     startActivity(intent)
                 } else {
                     // Login failed, display an error message
