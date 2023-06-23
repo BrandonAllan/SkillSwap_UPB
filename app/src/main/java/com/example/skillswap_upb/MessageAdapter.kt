@@ -4,82 +4,65 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.skillswap_upb.databinding.ReceiveMessageBinding
-import com.example.skillswap_upb.databinding.SendMessageBinding
-import com.google.firebase.FirebaseApp
 import com.google.firebase.auth.FirebaseAuth
 
-class MessageAdapter(var context:Context, messages:ArrayList<Message>?, senderRoom:String, receiverRoom:String):RecyclerView.Adapter<RecyclerView.ViewHolder>()
-{
-    lateinit var messages:ArrayList<Message>
-    val Item_sent=1
-    val Item_receive=2
-    val senderRoom:String
-    val receiverRoom:String
+class MessageAdapter(val context:Context, val messageList: ArrayList<Message>):
+    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
+    val ITEM_RECEIVE = 1;
+    val ITEM_SENT = 2;
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        return if(viewType == Item_sent){
-            val view = LayoutInflater.from(context).inflate(R.layout.send_message, parent, false)
-            SentMsgHolder(view)
+        if(viewType == 1){
+            //inflate receive
+            val view: View= LayoutInflater.from(context).inflate(R.layout.receive_message, parent, false)
+            return ReceiveViewHolder(view)
         } else{
-            val view = LayoutInflater.from(context).inflate(R.layout.send_message, parent, false)
-            ReceiveMsgHolder(view)
+            //inflate sent
+            val view: View = LayoutInflater.from(context).inflate(R.layout.send_message, parent, false)
+            return SentViewHolder(view)
         }
     }
 
     override fun getItemViewType(position: Int): Int {
-        val messages = messages[position]
-            return if (FirebaseAuth.getInstance().uid == messages.senderId){
-                Item_sent
-            }else{
-                Item_receive
-            }
+        val currentMessage = messageList[position]
+
+        if (FirebaseAuth.getInstance().currentUser?.uid.equals(currentMessage.senderId)){
+            return ITEM_SENT
+        }else{
+            return ITEM_RECEIVE
+        }
     }
 
-    override fun getItemCount(): Int = messages.size
+    override fun getItemCount(): Int{
+        return messageList.size
+    }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val message = messages[position]
-        if(holder.javaClass == SentMsgHolder::class.java){
-            val viewHolder = holder as SentMsgHolder
-            if (message.message.equals("photo")){
-                viewHolder.binding.imageChat.visibility = View.VISIBLE
-                viewHolder.binding.message.visibility = View.GONE
-                viewHolder.binding.messageLinear.visibility = View.GONE
-                Glide.with(context)
-                    .load(message.imageUrl)
-                    .placeholder(R.drawable.chat_image)
-                    .into(viewHolder.binding.imageChat)
-                }
-            }else {
-                val viewHolder = holder as ReceiveMsgHolder
-                if(message.message.equals("photo")){
-                    viewHolder.binding.imageChat.visibility = View.VISIBLE
-                    viewHolder.binding.message.visibility = View.GONE
-                    viewHolder.binding.messageLinear.visibility = View.GONE
-                    Glide.with(context)
-                        .load(message.imageUrl)
-                        .placeholder(R.drawable.chat_image)
-                        .into(viewHolder.binding.imageChat)
-                }
+
+        val currentMessage = messageList[position]
+
+        if(holder.javaClass == SentViewHolder::class.java){
+            //Sent view holder
+            val viewHolder = holder as SentViewHolder
+            holder.sentMessage.text = currentMessage.message
+        }else{
+            //Receive view holder
+            val viewHolder = holder as ReceiveViewHolder
+            holder.receiveMessage.text = currentMessage.message
         }
     }
 
-    inner class SentMsgHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        var binding:SendMessageBinding = SendMessageBinding.bind(itemView)
+    class SentViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
+        val sentMessage = itemView.findViewById<TextView>(R.id.txt_sent_message)
     }
 
-    inner class ReceiveMsgHolder(itemView:View):RecyclerView.ViewHolder(itemView){
-        var binding:ReceiveMessageBinding = ReceiveMessageBinding.bind(itemView)
-    }
-    init{
-        if(messages!=null){
-            this.messages = messages
-        }
-        this.senderRoom = senderRoom
-        this.receiverRoom = receiverRoom
+    class ReceiveViewHolder(itemView:View):RecyclerView.ViewHolder(itemView){
+        val receiveMessage = itemView.findViewById<TextView>(R.id.txt_receive_message)
+
     }
 
 }
