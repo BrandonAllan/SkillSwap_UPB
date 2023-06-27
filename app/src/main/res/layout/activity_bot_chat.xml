@@ -27,7 +27,7 @@
             android:layout_marginLeft="18dp"
             android:layout_width="42dp"
             android:layout_height="42dp"
-            android:src="@drawable/profile_picture"/>
+            android:src="@drawable/gpt_logo"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -39,7 +39,7 @@
                 android:id="@+id/profileName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Profile Name"
+                android:text="Chat GPT"
                 android:textColor="@android:color/white"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
@@ -105,20 +105,6 @@
                     android:layout_height="60dp"
                     android:layout_weight="1"
                     android:hint="Message" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_margin="9dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_attachment" />
-
-                <ImageView
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:layout_margin="9dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_camera" />
 
             </LinearLayout>
 

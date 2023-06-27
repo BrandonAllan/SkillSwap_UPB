@@ -17,25 +17,32 @@
         android:backgroundTint="#FBF7F7"
         android:hint="Que quieres aprender hoy?"
         android:textColor="#ECE4E4"
-        android:textColorHint="#F3EFEF"
+        android:textColorHint="@color/white"
+        android:padding="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageAddItem"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/ic_add_item"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etBuscador"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvlista"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etBuscador"
+        app:layout_constraintTop_toBottomOf="@+id/imageAddItem"
         tools:listitem="@layout/item_rv_usuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
