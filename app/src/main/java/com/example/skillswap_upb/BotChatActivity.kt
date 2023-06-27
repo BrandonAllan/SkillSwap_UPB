@@ -1,5 +1,6 @@
 package com.example.skillswap_upb
 
+import BotMessage
 import android.os.Bundle
 import android.util.Log
 import android.widget.EditText
@@ -53,16 +54,17 @@ class BotChatActivity : AppCompatActivity() {
 
     }
 
-    fun addToChat(message: String, sentBy: String) {
+    fun addToChat(message: String, senderRole: String) {
         runOnUiThread {
-            messageList.add(BotMessage(message, sentBy))
+            messageList.add(BotMessage(message, "me", senderRole))
             messageAdapter.notifyDataSetChanged()
             messageRecyclerView.smoothScrollToPosition(messageAdapter.itemCount)
         }
     }
 
+
     fun getResponse(question: String, callback: (String) -> Unit) {
-        val apikey = "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"
+        val apikey = "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"
         val url = "https://api.openai.com/v1/completions"
         val requestBody = """
         {
@@ -89,12 +91,14 @@ class BotChatActivity : AppCompatActivity() {
                 val body = response.body?.string()
                 if (body != null) {
                     val json = JSONObject(body)
-                    val choicesArray = json.getJSONArray("choices")
-                    if (choicesArray.length() > 0) {
-                        val choice = choicesArray.getJSONObject(0)
-                        val completionText = choice.getString("text")
-                        runOnUiThread {
-                            addToChat(completionText, "bot")
+                    if (json.has("choices")) {
+                        val choicesArray = json.getJSONArray("choices")
+                        if (choicesArray.length() > 0) {
+                            val choice = choicesArray.getJSONObject(0)
+                            val completionText = choice.getString("text")
+                            runOnUiThread {
+                                addToChat(completionText, "bot")
+                            }
                         }
                     }
                 }
