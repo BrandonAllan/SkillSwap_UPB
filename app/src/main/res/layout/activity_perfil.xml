@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     android:background="@drawable/iphone"
     android:padding="0dp"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/frame_container"
+    >
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationView"
@@ -18,7 +20,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/botton_nav_menu"
         app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"/>
+        app:itemTextColor="@color/black"
+        />
 
     <TextView
         android:id="@+id/NombreText"
