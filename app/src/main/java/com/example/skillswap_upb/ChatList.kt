@@ -1,7 +1,10 @@
 package com.example.skillswap_upb
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
+import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skillswap_upb.adapter.UserAdapter
@@ -32,6 +35,21 @@ class ChatList : AppCompatActivity() {
         userRecyclerView = findViewById(R.id.userListChat)
         userRecyclerView.layoutManager = LinearLayoutManager(this)
         userRecyclerView.adapter = adapter
+
+        // Set click listener for backButton ImageView
+        val backButton: ImageView = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            // Finish the current activity and go back to the previous screen
+            finish()
+        }
+
+        // Set click listener for the ChatBotItem
+        val relativeLayout: RelativeLayout = findViewById(R.id.relativeLayout)
+        relativeLayout.setOnClickListener {
+            // Open BotChatActivity when RelativeLayout is clicked
+            val intent = Intent(this, BotChatActivity::class.java)
+            startActivity(intent)
+        }
 
         dbref.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {

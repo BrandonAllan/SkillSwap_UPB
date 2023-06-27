@@ -52,6 +52,13 @@ class ChatActivity : AppCompatActivity() {
         messageRecyclerView.layoutManager = LinearLayoutManager(this)
         messageRecyclerView.adapter = messageAdapter
 
+        // Set click listener for backButton ImageView
+        val backButton: ImageView = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            // Finish the current activity and go back to the previous screen
+            finish()
+        }
+
         //logic for adding data to recyclerview
         dbref.child("chats").child(senderRoom!!).child("messages")
             .addValueEventListener(object: ValueEventListener{

@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="Chat GPT"
+                android:text="Skill Swap Bot"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
 
@@ -84,7 +84,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:text="Message"
+                android:text="message"
                 android:textColor="@color/black"
                 android:textSize="14sp" />
 

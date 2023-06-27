@@ -41,6 +41,13 @@ class BotChatActivity : AppCompatActivity() {
         messageRecyclerView.layoutManager = LinearLayoutManager(this)
         messageRecyclerView.adapter = messageAdapter
 
+        // Set click listener for backButton ImageView
+        val backButton: ImageView = findViewById(R.id.backButton)
+        backButton.setOnClickListener {
+            // Finish the current activity and go back to the previous screen
+            finish()
+        }
+
         sendButton.setOnClickListener {
             val question = messageBox.text.toString().trim()
             addToChat(question, "me")
@@ -64,7 +71,7 @@ class BotChatActivity : AppCompatActivity() {
 
 
     fun getResponse(question: String, callback: (String) -> Unit) {
-        val apikey = "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"
+        val apikey = "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"
         val url = "https://api.openai.com/v1/completions"
         val requestBody = """
         {
