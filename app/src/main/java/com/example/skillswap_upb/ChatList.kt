@@ -8,6 +8,7 @@ import android.widget.RelativeLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.skillswap_upb.adapter.UserAdapter
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -67,5 +68,33 @@ class ChatList : AppCompatActivity() {
                 // Handle onCancelled event if needed
             }
         })
+        val bottomNavigationView: BottomNavigationView = findViewById(R.id.bottomNavigationView)
+        bottomNavigationView.setOnNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.menu_nav -> {
+                    loadActivity(ChatList::class.java)
+                    true
+                }
+                R.id.search_nav -> {
+                    loadActivity(MainActivity::class.java)
+                    true
+                }
+                R.id.perfil_nav -> {
+                    loadActivity(PerfilActivity::class.java)
+                    true
+                }
+                else -> false
+            }
+        }
     }
-}
+
+    private fun loadActivity(activityClass: Class<out AppCompatActivity>) {
+        val intent = Intent(this, activityClass)
+        startActivity(intent)
+        finish()
+    }
+
+
+
+    }
+
