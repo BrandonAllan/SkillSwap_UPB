@@ -29,11 +29,11 @@ class PerfilActivity : AppCompatActivity() {
         bottomNavigationView.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.menu_nav -> {
-                    loadActivity(MainActivity::class.java)
+                    loadActivity(ChatList::class.java)
                     true
                 }
                 R.id.search_nav -> {
-                    loadActivity(ApredizajeActivity::class.java)
+                    loadActivity(MainActivity::class.java)
                     true
                 }
                 R.id.perfil_nav -> {
