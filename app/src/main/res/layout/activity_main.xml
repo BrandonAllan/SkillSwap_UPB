@@ -12,26 +12,26 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/navigationBarColor"
+        app:itemIconTint="@color/black"
+        app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/botton_nav_menu"
-        app:itemIconTint="@color/black"
-        app:itemTextColor="@color/black"/>
+        app:menu="@menu/botton_nav_menu" />
 
     <SearchView
         android:id="@+id/searchView"
-        android:layout_width="324dp"
-        android:layout_height="37dp"
+        android:layout_width="299dp"
+        android:layout_height="34dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="@color/white"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintHorizontal_bias="0.937"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.077" />
+        app:layout_constraintVertical_bias="0.06" />
 
     <FrameLayout
         android:id="@+id/DERECHO"
@@ -47,20 +47,20 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/derecho"
-            android:scaleType="centerCrop"
+            android:alpha="0.5"
             android:background="@drawable/rounded_corners"
-            android:alpha="0.5" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/derecho" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="DERECHO"
+            android:layout_gravity="center"
             android:gravity="center"
+            android:text="DERECHO"
             android:textColor="@color/white"
-            android:textStyle="bold|normal"
             android:textSize="20sp"
-            android:layout_gravity="center" />
+            android:textStyle="bold|normal" />
 
     </FrameLayout>
 
@@ -78,20 +78,20 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/finanzas"
-            android:scaleType="centerCrop"
+            android:alpha="0.5"
             android:background="@drawable/rounded_corners"
-            android:alpha="0.5" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/finanzas" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="FINANZAS"
+            android:layout_centerInParent="true"
             android:gravity="center"
+            android:text="FINANZAS"
             android:textColor="@color/white"
-            android:textStyle="bold|normal"
             android:textSize="20sp"
-            android:layout_centerInParent="true" />
+            android:textStyle="bold|normal" />
 
     </RelativeLayout>
 
@@ -109,20 +109,20 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ingenieria"
-            android:scaleType="centerCrop"
+            android:alpha="0.5"
             android:background="@drawable/rounded_corners"
-            android:alpha="0.5" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ingenieria" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INGENIERIA"
+            android:layout_centerInParent="true"
             android:gravity="center"
+            android:text="INGENIERIA"
             android:textColor="@color/white"
-            android:textStyle="bold|normal"
             android:textSize="20sp"
-            android:layout_centerInParent="true" />
+            android:textStyle="bold|normal" />
 
     </RelativeLayout>
 
@@ -140,20 +140,20 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ciencia"
-            android:scaleType="centerCrop"
+            android:alpha="0.5"
             android:background="@drawable/rounded_corners"
-            android:alpha="0.5" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ciencia" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:gravity="center"
             android:text="CIENCIAS BASICAS"
             android:textColor="@color/white"
-            android:gravity="center"
-            android:textStyle="bold|normal"
             android:textSize="20sp"
-            android:layout_centerInParent="true" />
+            android:textStyle="bold|normal" />
 
     </RelativeLayout>
 
@@ -171,20 +171,20 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ingles"
-            android:scaleType="centerCrop"
+            android:alpha="0.5"
             android:background="@drawable/rounded_corners"
-            android:alpha="0.5" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ingles" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="INGLES"
+            android:layout_centerInParent="true"
             android:gravity="center"
+            android:text="INGLES"
             android:textColor="@color/white"
-            android:textStyle="bold|normal"
             android:textSize="20sp"
-            android:layout_centerInParent="true" />
+            android:textStyle="bold|normal" />
 
     </RelativeLayout>
 
@@ -202,10 +202,10 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/ultimo_semestre"
-            android:scaleType="centerCrop"
+            android:alpha="0.5"
             android:background="@drawable/rounded_corners"
-            android:alpha="0.5" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ultimo_semestre" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -218,5 +218,15 @@
             android:textStyle="bold|normal" />
 
     </RelativeLayout>
+
+    <Button
+        android:id="@+id/buttoncambio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="34dp"
+        android:text="Buscar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
